@@ -2,7 +2,11 @@
   "private": true,
   "name": "prisma-yoga-example",
   "scripts": {
-    "prepare": "prisma generate",
+    "prepare": "npm run generate",
+    "generate": "npm run generate:schema && npm run generate:prisma && npm run generate:graphql",
+    "generate:schema": "ts-node scripts/extractSchema.ts",
+    "generate:prisma": "prisma generate",
+    "generate:graphql": "npm run codegen",
     "start": "ts-node-dev src/server.ts",
     "migrate:dev": "cross-env DATABASE_NAME=dev prisma migrate dev",
     "migrate:dev:reset": "cross-env DATABASE_NAME=dev prisma migrate reset",
@@ -10,11 +14,15 @@
     "migrate:test:reset": "cross-env DATABASE_NAME=test prisma migrate reset",
     "seed": "ts-node scripts/seed.ts",
     "test": "cross-env DATABASE_NAME=test jest",
-    "format": "prettier . --write"
+    "format": "prettier . --write",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "author": "Quramy",
   "license": "MIT",
   "devDependencies": {
+    "@graphql-codegen/cli": "2.14.1",
+    "@graphql-codegen/typescript": "2.8.2",
+    "@graphql-codegen/typescript-resolvers": "2.7.7",
     "@ngneat/falso": "^6.1.0",
     "@quramy/jest-prisma-node": "^1.2.0",
     "@quramy/prisma-fabbrica": "^0.2.3",
@@ -23,11 +31,12 @@
     "prisma": "^4.6.1",
     "ts-jest": "^29.0.3",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^4.8.4"
+    "typescript": "^4.9.3"
   },
   "dependencies": {
     "@prisma/client": "^4.6.1",
     "@types/jest": "^29.2.1",
+    "graphql": "^16.6.0",
     "graphql-yoga": "^3.1.0",
     "jest": "^29.2.2",
     "jest-environment-node": "^29.2.2",

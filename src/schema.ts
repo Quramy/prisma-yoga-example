@@ -1,6 +1,7 @@
 import { createSchema } from "graphql-yoga";
+import { Resolvers, QueryResolvers } from "./__generated__/graphql";
 
-const typeDefs = /* GraphQL */ `
+export const typeDefs = /* GraphQL */ `
   type Post {
     id: ID!
     title: String!
@@ -19,12 +20,16 @@ const typeDefs = /* GraphQL */ `
   }
 `;
 
+const Query: QueryResolvers = {
+  posts: () => [],
+  post: () => null,
+};
+
+const resolvers: Resolvers = {
+  Query,
+};
+
 export const schema = createSchema({
   typeDefs,
-  resolvers: {
-    Query: {
-      posts: () => [],
-      post: () => null,
-    },
-  },
+  resolvers,
 });
