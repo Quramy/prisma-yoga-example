@@ -2,7 +2,7 @@ process.env.DATABASE_NAME ||= "dev";
 
 import { PrismaClient } from "@prisma/client";
 import { initialize } from "../src/__generated__/fabbrica";
-import { PostFactory, CommentFactory } from "../src/factories";
+import { PostFactory, CommentFactory } from "../tests/factories";
 
 const prisma = new PrismaClient();
 initialize({ prisma });
