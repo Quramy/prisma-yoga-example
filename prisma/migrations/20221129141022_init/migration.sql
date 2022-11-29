@@ -2,7 +2,7 @@
 CREATE TABLE "Post" (
     "id" TEXT NOT NULL,
     "title" TEXT NOT NULL,
-    "body" TEXT,
+    "body" TEXT NOT NULL,
     "isDraft" BOOLEAN NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
@@ -15,6 +15,7 @@ CREATE TABLE "Comment" (
     "id" TEXT NOT NULL,
     "postId" TEXT NOT NULL,
     "star" INTEGER NOT NULL,
+    "body" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 

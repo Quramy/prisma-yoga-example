@@ -15,5 +15,7 @@ async function main() {
     comments: { create: await CommentFactory.buildList(3) },
   });
   await PostFactory.createList(4);
+
+  console.log(await prisma.post.count());
 }
 main();

@@ -20,6 +20,7 @@
   "author": "Quramy",
   "license": "MIT",
   "devDependencies": {
+    "@graphql-codegen/add": "^3.2.1",
     "@graphql-codegen/cli": "2.14.1",
     "@graphql-codegen/typescript": "2.8.2",
     "@graphql-codegen/typescript-resolvers": "2.7.7",
