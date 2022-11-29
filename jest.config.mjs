@@ -1,4 +1,5 @@
 const config = {
+  testMatch: ["<rootDir>/tests/**/*.+(test|spec).[t|j]s"],
   transform: {
     "^.+\\.tsx?$": ["ts-jest", { diagnostics: false }],
   },
