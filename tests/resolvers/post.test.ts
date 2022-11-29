@@ -1,10 +1,11 @@
 import { Post } from "../../src/resolvers/post";
 import { PostFactory, CommentFactory } from "../factories";
+import { createStubContext } from "../stubContext";
 
 describe("Post resolver", () => {
   describe("comments field", () => {
     let parentPost: any;
-    const subject = () => Post.comments(parentPost, {}, { prisma: jestPrisma.client });
+    const subject = () => Post.comments(parentPost, {}, createStubContext());
 
     describe("when a post record does not comment", () => {
       beforeEach(async () => {

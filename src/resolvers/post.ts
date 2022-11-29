@@ -1,7 +1,7 @@
 import type { PostResolvers } from "../__generated__/graphql";
 
 export const Post = {
-  comments: async ({ id }, _, { prisma }) => {
-    return await prisma.comment.findMany({ where: { postId: id }, orderBy: { updatedAt: "desc" } });
+  comments: async ({ id }, _, { loaders: { postCommentsLoader } }) => {
+    return await postCommentsLoader.load(id);
   },
 } satisfies PostResolvers;
