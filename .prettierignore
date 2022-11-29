@@ -1,0 +1,10 @@
+built/
+__snapshots__/
+coverage/
+e2e_coverage/
+*.tsbuildinfo
+node_modules/
+prisma/
+lib/
+__generated__/
+dmmf.json

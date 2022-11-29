@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  db:
+    container_name: postgres
+    image: postgres:14.4-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-store:/var/lib/postgres/data
+    environment:
+      POSTGRES_USER: admin123
+      POSTGRES_PASSWORD: admin123
+volumes:
+  postgres-store:
