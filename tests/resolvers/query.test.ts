@@ -15,6 +15,7 @@ describe("Query resolver", () => {
 
     describe("when posts exist", () => {
       let posts: { id: string }[];
+
       beforeEach(async () => {
         posts = await PostFactory.createList(2);
       });
@@ -29,10 +30,7 @@ describe("Query resolver", () => {
     const subject = (id: string) => Query.post({}, { id }, createStubContext());
 
     describe("when a post exists", () => {
-      let post: any;
-      beforeEach(async () => {
-        post = await PostFactory.create({ id: "sample_post" });
-      });
+      beforeEach(async () => await PostFactory.create({ id: "sample_post" }));
 
       it("resolves null", async () => {
         await expect(subject("not_existing_post_id")).resolves.toBeNull();
