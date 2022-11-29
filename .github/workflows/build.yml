@@ -1,0 +1,34 @@
+name: build
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:14.4-alpine
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: admin123
+          POSTGRES_PASSWORD: admin123
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+      - name: npm install, build, and test
+        run: |
+          npm ci
+          npm run migrate:test
+          npm run test
+        env:
+          DATABASE_URL: postgresql://admin123:admin123@localhost:5432/test
+          CI: true
