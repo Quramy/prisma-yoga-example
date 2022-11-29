@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "prisma-integraion-test-example",
+  "name": "prisma-yoga-example",
   "scripts": {
     "prepare": "prisma generate",
     "start": "ts-node-dev src/server.ts",
@@ -9,7 +9,8 @@
     "migrate:test": "cross-env DATABASE_NAME=test prisma migrate dev",
     "migrate:test:reset": "cross-env DATABASE_NAME=test prisma migrate reset",
     "seed": "ts-node scripts/seed.ts",
-    "test": "cross-env DATABASE_NAME=test jest"
+    "test": "cross-env DATABASE_NAME=test jest",
+    "format": "prettier . --write"
   },
   "author": "Quramy",
   "license": "MIT",
