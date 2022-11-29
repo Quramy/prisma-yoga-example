@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import { printSchema, buildSchema } from "graphql";
-import { typeDefs } from "../src/schema";
+import { typeDefs } from "../src/typeDefs";
 
 async function main() {
   const schema = buildSchema(typeDefs);
