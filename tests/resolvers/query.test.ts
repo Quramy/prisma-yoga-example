@@ -1,9 +1,10 @@
 import { Query } from "../../src/resolvers/query";
 import { PostFactory, CommentFactory } from "../factories";
+import { createStubContext } from "../stubContext";
 
 describe("Query resolver", () => {
   describe("posts field", () => {
-    const subject = () => Query.posts({}, {}, { prisma: jestPrisma.client });
+    const subject = () => Query.posts({}, {}, createStubContext());
 
     describe("when there are no posts", () => {
       it("resolves comments as empty array", async () => {
@@ -25,7 +26,7 @@ describe("Query resolver", () => {
   });
 
   describe("post field", () => {
-    const subject = (id: string) => Query.post({}, { id }, { prisma: jestPrisma.client });
+    const subject = (id: string) => Query.post({}, { id }, createStubContext());
 
     describe("when a post exists", () => {
       let post: any;

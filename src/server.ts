@@ -6,6 +6,7 @@ import { createYoga } from "graphql-yoga";
 
 import type { ServerContext } from "./types";
 import { schema } from "./schema";
+import { createLoaders } from "./loaders";
 
 const prisma = new PrismaClient({
   log: ["info", "error", "warn", "query"],
@@ -13,12 +14,17 @@ const prisma = new PrismaClient({
 
 const yoga = createYoga({
   schema,
-  context: initialContext =>
-    ({
+  context(initialContext) {
+    const loaders = createLoaders({ prisma });
+    const context: ServerContext = {
       ...initialContext,
       prisma,
-    } as ServerContext),
+      loaders,
+    };
+    return context;
+  },
 });
+
 const server = createServer(yoga);
 
 server.listen(4000, () => {
