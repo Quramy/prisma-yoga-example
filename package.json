@@ -29,13 +29,13 @@
     "@quramy/prisma-fabbrica": "^0.2.3",
     "cross-env": "^7.0.3",
     "prettier": "^2.8.0",
-    "prisma": "^4.6.1",
+    "prisma": "^4.7.0",
     "ts-jest": "^29.0.3",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.9.3"
   },
   "dependencies": {
-    "@prisma/client": "^4.6.1",
+    "@prisma/client": "^4.7.0",
     "@types/jest": "^29.2.1",
     "dataloader": "^2.1.0",
     "graphql": "^16.6.0",
