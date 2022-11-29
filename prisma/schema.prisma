@@ -18,7 +18,7 @@ datasource db {
 model Post {
   id        String    @id @default(cuid())
   title     String
-  body      String?
+  body      String
   isDraft   Boolean
   comments  Comment[]
   createdAt DateTime  @default(now())
