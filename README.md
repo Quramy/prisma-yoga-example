@@ -7,6 +7,7 @@ Example repository graphql-yoga and Prisma ORM.
 ```sh
 $ docker compose up
 $ npm i
+$ cp .env.example .env
 ```
 
 ## Start GraphQL Server
