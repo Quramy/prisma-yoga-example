@@ -1,5 +1,3 @@
-process.env.DATABASE_NAME ||= "dev";
-
 import { createServer } from "node:http";
 import { PrismaClient } from "@prisma/client";
 import { createYoga } from "graphql-yoga";
