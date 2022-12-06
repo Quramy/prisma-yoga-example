@@ -1,6 +1,6 @@
-import { Query } from "../../src/resolvers/query";
-import { PostFactory, CommentFactory } from "../factories";
-import { createStubContext } from "../stubContext";
+import { Query } from "../../src/resolvers/query.js";
+import { PostFactory, CommentFactory } from "../factories/index.js";
+import { createStubContext } from "../stubContext.js";
 
 describe("Query resolver", () => {
   describe("posts field", () => {

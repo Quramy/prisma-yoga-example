@@ -1,5 +1,5 @@
-import { BaseContext } from "../src/types";
-import { createLoaders } from "../src/loaders";
+import { BaseContext } from "../src/types.js";
+import { createLoaders } from "../src/loaders/index.js";
 
 export function createStubContext() {
   return {

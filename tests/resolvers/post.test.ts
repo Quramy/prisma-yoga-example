@@ -1,6 +1,6 @@
-import { Post } from "../../src/resolvers/post";
-import { PostFactory, CommentFactory } from "../factories";
-import { createStubContext } from "../stubContext";
+import { Post } from "../../src/resolvers/post.js";
+import { PostFactory, CommentFactory } from "../factories/index.js";
+import { createStubContext } from "../stubContext.js";
 
 describe("Post resolver", () => {
   describe("comments field", () => {

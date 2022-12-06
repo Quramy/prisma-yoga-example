@@ -1,12 +1,12 @@
 process.env.DATABASE_NAME ||= "dev";
 
-import { PrismaClient } from "@prisma/client";
 import { createServer } from "node:http";
+import { PrismaClient } from "@prisma/client";
 import { createYoga } from "graphql-yoga";
 
-import type { ServerContext } from "./types";
-import { schema } from "./schema";
-import { createLoaders } from "./loaders";
+import type { ServerContext } from "./types.js";
+import { schema } from "./schema.js";
+import { createLoaders } from "./loaders/index.js";
 
 const prisma = new PrismaClient({
   log: ["info", "error", "warn", "query"],

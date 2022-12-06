@@ -1,5 +1,5 @@
-import { createPostCommentsLoader } from "../../src/loaders/postCommentsLoader";
-import { PostFactory, CommentFactory } from "../factories";
+import { createPostCommentsLoader } from "../../src/loaders/postCommentsLoader.js";
+import { PostFactory, CommentFactory } from "../factories/index.js";
 
 describe(createPostCommentsLoader, () => {
   beforeEach(async () => {

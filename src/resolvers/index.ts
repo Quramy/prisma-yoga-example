@@ -1,6 +1,6 @@
-import type { Resolvers } from "../__generated__/graphql";
-import { Post } from "./post";
-import { Query } from "./query";
+import type { Resolvers } from "../__generated__/graphql.js";
+import { Post } from "./post.js";
+import { Query } from "./query.js";
 
 export const resolvers = {
   Post,
