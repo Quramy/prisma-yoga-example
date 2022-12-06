@@ -27,6 +27,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm ci
+          npm run compile
           npm run migrate:test
           npm run test
         env:

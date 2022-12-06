@@ -16,6 +16,7 @@
     "migrate:test:reset": "cross-env DATABASE_NAME=test prisma migrate reset",
     "seed": "cross-env DATABASE_NAME=dev ts-node-esm scripts/seed.ts",
     "test": "cross-env DATABASE_NAME=test NODE_OPTIONS=--experimental-vm-modules jest",
+    "compile": "tsc --noEmit",
     "format": "prettier . --write",
     "codegen": "graphql-codegen-esm --config codegen.yml"
   },
