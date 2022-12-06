@@ -1,7 +1,7 @@
 import { Comment, PrismaClient } from "@prisma/client";
 import DataLoader from "dataloader";
 
-import { createPostCommentsLoader } from "./postCommentsLoader";
+import { createPostCommentsLoader } from "./postCommentsLoader.js";
 
 export function createLoaders({ prisma }: { prisma: PrismaClient }) {
   return {

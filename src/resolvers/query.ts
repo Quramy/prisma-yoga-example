@@ -1,4 +1,4 @@
-import type { QueryResolvers } from "../__generated__/graphql";
+import type { QueryResolvers } from "../__generated__/graphql.js";
 
 export const Query = {
   posts: async (_, __, { prisma }) => {

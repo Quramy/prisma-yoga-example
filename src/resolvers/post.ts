@@ -1,4 +1,4 @@
-import type { PostResolvers } from "../__generated__/graphql";
+import type { PostResolvers } from "../__generated__/graphql.js";
 
 export const Post = {
   comments: async ({ id }, _, { loaders: { postCommentsLoader } }) => {

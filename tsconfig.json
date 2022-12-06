@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "module": "CommonJS",
+    "target": "es2021",
+    "module": "node16",
+    "moduleResolution": "node16",
     "types": ["@types/jest", "@quramy/jest-prisma-node"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
