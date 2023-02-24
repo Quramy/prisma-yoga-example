@@ -24,7 +24,7 @@
   "license": "MIT",
   "devDependencies": {
     "@graphql-codegen/add": "^4.0.0",
-    "@graphql-codegen/cli": "3.2.0",
+    "@graphql-codegen/cli": "3.2.1",
     "@graphql-codegen/typescript": "3.0.1",
     "@graphql-codegen/typescript-resolvers": "3.1.0",
     "@ngneat/falso": "^6.1.0",
