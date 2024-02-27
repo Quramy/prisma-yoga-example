@@ -2,12 +2,12 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["clientExtensions"]
+  provider = "prisma-client-js"
 }
 
 generator fabbrica {
-  provider = "prisma-fabbrica"
+  provider    = "prisma-fabbrica"
+  noTranspile = true
 }
 
 datasource db {
