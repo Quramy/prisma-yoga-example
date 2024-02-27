@@ -5,7 +5,7 @@
   "scripts": {
     "prepare": "npm run generate",
     "generate": "npm run generate:schema && npm run generate:prisma && npm run generate:graphql",
-    "generate:schema": "ts-node-esm scripts/extractSchema.ts",
+    "generate:schema": "node --import=tsimp/import scripts/extractSchema.ts",
     "generate:prisma": "prisma generate",
     "generate:graphql": "npm run codegen",
     "prestart": "tsc -p tsconfig.build.json",
@@ -14,7 +14,7 @@
     "migrate:dev:reset": "cross-env DATABASE_NAME=dev prisma migrate reset",
     "migrate:test": "cross-env DATABASE_NAME=test prisma migrate dev",
     "migrate:test:reset": "cross-env DATABASE_NAME=test prisma migrate reset",
-    "seed": "cross-env DATABASE_NAME=dev ts-node-esm scripts/seed.ts",
+    "seed": "cross-env DATABASE_NAME=dev node --import=tsimp/import scripts/seed.ts",
     "test": "cross-env DATABASE_NAME=test NODE_OPTIONS=--experimental-vm-modules jest",
     "compile": "tsc --noEmit",
     "format": "prettier . --write",
@@ -34,6 +34,7 @@
     "prettier": "^2.8.0",
     "prisma": "^5.0.0",
     "ts-jest": "^29.0.3",
+    "tsimp": "^2.0.11",
     "typescript": "^5.0.0"
   },
   "dependencies": {
