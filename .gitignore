@@ -145,3 +145,4 @@ dist
 
 __generated__
 built/
+.tsimp/

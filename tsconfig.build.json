@@ -7,5 +7,5 @@
     "rootDir": "src",
     "outDir": "built"
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*"]
 }
