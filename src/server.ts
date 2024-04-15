@@ -5,19 +5,29 @@ import { createYoga } from "graphql-yoga";
 import type { ServerContext } from "./types.js";
 import { schema } from "./schema.js";
 import { createLoaders } from "./loaders/index.js";
+import { GraphQLDebuggerContext, traceSchema } from "@graphql-debugger/trace-schema";
+import { ProxyAdapter } from "@graphql-debugger/adapter-proxy";
+import prismaOTEL from "@prisma/instrumentation";
 
 const prisma = new PrismaClient({
   log: ["info", "error", "warn", "query"],
 });
 
-const yoga = createYoga({
+const tracedSchema = traceSchema({
   schema,
+  adapter: new ProxyAdapter(),
+  instrumentations: [new prismaOTEL.PrismaInstrumentation()],
+});
+
+const yoga = createYoga({
+  schema: tracedSchema,
   context(initialContext) {
     const loaders = createLoaders({ prisma });
     const context: ServerContext = {
       ...initialContext,
       prisma,
       loaders,
+      GraphQLDebuggerContext: new GraphQLDebuggerContext(),
     };
     return context;
   },

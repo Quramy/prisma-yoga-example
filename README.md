@@ -32,6 +32,10 @@ $ npm run migrate:test
 $ npm test
 ```
 
+## Debugging
+
+Issue a query in GraphQL Playground, then visit http://localhost:16686 to debug using [GraphQL Debugger](https://graphql-debugger.com/).
+
 ## License
 
 MIT
