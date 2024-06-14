@@ -3,7 +3,7 @@ version: "3"
 services:
   db:
     container_name: postgres
-    image: postgres:14.11-alpine
+    image: postgres:14.12-alpine
     ports:
       - "5432:5432"
     volumes:
