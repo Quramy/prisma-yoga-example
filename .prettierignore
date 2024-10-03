@@ -8,3 +8,5 @@ prisma/
 lib/
 __generated__/
 dmmf.json
+.tsimp/
+schema.graphql
