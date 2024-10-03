@@ -21,7 +21,7 @@ $ cp .env.example .env
 ```sh
 $ npm run migrate:dev
 $ npm run seed
-$ npm start
+$ npm run dev
 $ open http://localhost:4000/graphql
 ```
 
