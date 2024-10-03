@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
-    "incremental": true,
     "target": "es2021",
-    "module": "node16",
-    "moduleResolution": "node16",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "noEmit": true,
     "types": ["@types/jest", "@quramy/jest-prisma-node"],
     "esModuleInterop": true,
