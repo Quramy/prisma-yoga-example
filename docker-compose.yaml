@@ -11,11 +11,5 @@ services:
       POSTGRES_USER: admin123
       POSTGRES_PASSWORD: admin123
 
-  graphql-debugger:
-    image: graphqldebugger/graphqldebugger:0.0.0-alpha.100
-    ports:
-      - 16686:16686
-      - 4318:4318
-
 volumes:
   postgres-store:

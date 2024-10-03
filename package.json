@@ -18,7 +18,7 @@
     "test": "cross-env DATABASE_NAME=test NODE_OPTIONS=--experimental-vm-modules jest",
     "compile": "tsc --noEmit",
     "format": "prettier . --write",
-    "codegen": "graphql-codegen-esm --config codegen.yml"
+    "codegen": "graphql-codegen-esm --config codegen.ts"
   },
   "author": "Quramy",
   "license": "MIT",
@@ -38,10 +38,7 @@
     "typescript": "~5.5.0"
   },
   "dependencies": {
-    "@graphql-debugger/adapter-proxy": "^0.0.0-alpha.100",
-    "@graphql-debugger/trace-schema": "^0.0.0-alpha.100",
     "@prisma/client": "^5.0.0",
-    "@prisma/instrumentation": "^5.0.0",
     "@types/jest": "^29.2.1",
     "dataloader": "^2.1.0",
     "graphql": "^16.6.0",
