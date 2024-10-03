@@ -12,7 +12,7 @@ export const typeDefs = /* GraphQL */ `
   }
 
   type Query {
-    posts: [Post]!
+    posts: [Post!]!
     post(id: ID!): Post
   }
 `;

@@ -10,6 +10,10 @@ const config: CodegenConfig = {
       config: {
         content: 'import type { BaseContext } from "../types.js";',
         contextType: "BaseContext",
+        mappers: {
+          Post: "../types.js#PostParent",
+          Comment: "../types.js#CommentParent",
+        },
       },
     },
   },
