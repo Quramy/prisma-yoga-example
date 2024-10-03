@@ -1,6 +1,6 @@
-import { Query } from "../../src/resolvers/query.js";
-import { PostFactory, CommentFactory } from "../factories/index.js";
-import { createStubContext } from "../stubContext.js";
+import { Query } from "./query.js";
+import { PostFactory, CommentFactory } from "../../../testing/factories/index.js";
+import { createStubContext } from "../../../testing/graphql/stubContext.js";
 
 describe("Query resolver", () => {
   describe("posts field", () => {

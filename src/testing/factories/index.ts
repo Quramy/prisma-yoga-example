@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 import { randPost, randSentence } from "@ngneat/falso";
 
-import { definePostFactory, defineCommentFactory } from "../../src/__generated__/fabbrica/index.js";
+import { definePostFactory, defineCommentFactory } from "./__generated__/fabbrica/index.js";
 
 export const PostFactory = definePostFactory({
   defaultData: () => {

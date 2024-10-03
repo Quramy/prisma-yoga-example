@@ -1,5 +1,5 @@
-import { BaseContext } from "../src/types.js";
-import { createLoaders } from "../src/loaders/index.js";
+import type { BaseContext } from "../../server/graphql/types.js";
+import { createLoaders } from "../../server/graphql/loaders/index.js";
 
 export function createStubContext() {
   return {

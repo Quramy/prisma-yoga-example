@@ -5,7 +5,7 @@ const config: CodegenConfig = {
   schema: "schema.graphql",
   generates: {
     // Server
-    "src/__generated__/graphql.ts": {
+    "src/server/graphql/__generated__/graphql.ts": {
       plugins: ["typescript", "add", "typescript-resolvers"],
       config: {
         content: 'import type { BaseContext } from "../types.js";',
