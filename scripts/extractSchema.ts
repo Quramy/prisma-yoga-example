@@ -1,8 +1,9 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { printSchema, buildSchema } from "graphql";
+import { buildSchema } from "graphql";
+import { printSchemaWithDirectives as printSchema } from "@graphql-tools/utils";
 
-import { typeDefs } from "../src/typeDefs.js";
+import { typeDefs } from "../src/server/graphql/typeDefs.js";
 
 const schema = buildSchema(typeDefs);
 const schemaPath = path.resolve(path.dirname(import.meta.url.replace("file://", "")), "../schema.graphql");

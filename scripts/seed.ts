@@ -1,8 +1,8 @@
 process.env.DATABASE_NAME ||= "dev";
 
 import { PrismaClient } from "@prisma/client";
-import { initialize } from "../src/__generated__/fabbrica/index.js";
-import { PostFactory, CommentFactory } from "../tests/factories/index.js";
+import { initialize } from "../src/testing/factories/__generated__/fabbrica/index.js";
+import { PostFactory, CommentFactory } from "../src/testing/factories/index.js";
 
 const prisma = new PrismaClient();
 initialize({ prisma });

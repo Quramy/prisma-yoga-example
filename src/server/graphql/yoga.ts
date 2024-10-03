@@ -1,4 +1,3 @@
-import { createServer } from "node:http";
 import { PrismaClient } from "@prisma/client";
 import { createYoga } from "graphql-yoga";
 
@@ -10,7 +9,7 @@ const prisma = new PrismaClient({
   log: ["info", "error", "warn", "query"],
 });
 
-const yoga = createYoga({
+export const yoga = createYoga({
   schema,
   context(initialContext) {
     const loaders = createLoaders({ prisma });
@@ -21,10 +20,4 @@ const yoga = createYoga({
     };
     return context;
   },
-});
-
-const server = createServer(yoga);
-
-server.listen(4000, () => {
-  console.info("Server is running on http://localhost:4000/graphql");
 });

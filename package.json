@@ -8,8 +8,8 @@
     "generate:schema": "node --import=tsimp/import scripts/extractSchema.ts",
     "generate:prisma": "prisma generate",
     "generate:graphql": "npm run codegen",
-    "dev": "cross-env DATABASE_NAME=dev node --watch --import=tsimp/import src/server.ts",
-    "start": "cross-env DATABASE_NAME=dev node --import=tsimp/import src/server.ts",
+    "dev": "cross-env DATABASE_NAME=dev node --watch --import=tsimp/import src/main.ts",
+    "start": "cross-env DATABASE_NAME=dev node --import=tsimp/import src/main.ts",
     "migrate:dev": "cross-env DATABASE_NAME=dev prisma migrate dev",
     "migrate:dev:reset": "cross-env DATABASE_NAME=dev prisma migrate reset",
     "migrate:test": "cross-env DATABASE_NAME=test prisma migrate dev",
@@ -38,6 +38,7 @@
     "typescript": "~5.5.0"
   },
   "dependencies": {
+    "@graphql-tools/utils": "^10.5.4",
     "@prisma/client": "^5.0.0",
     "@types/jest": "^29.2.1",
     "dataloader": "^2.1.0",
