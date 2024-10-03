@@ -1,15 +1,16 @@
 import { Post } from "./post.js";
+import type { PostParent } from "../types.js";
 import { PostFactory, CommentFactory } from "../../../testing/factories/index.js";
 import { createStubContext } from "../../../testing/graphql/stubContext.js";
 
 describe("Post resolver", () => {
   describe("comments field", () => {
-    let parentPost: any;
+    let parentPost: PostParent;
     const subject = () => Post.comments(parentPost, {}, createStubContext());
 
     describe("when a post record does not comment", () => {
       beforeEach(async () => {
-        parentPost = await PostFactory.createForConnect();
+        parentPost = await PostFactory.create();
       });
 
       it("resolves comments as empty array", async () => {
@@ -20,7 +21,7 @@ describe("Post resolver", () => {
 
     describe("when a post record does comments", () => {
       beforeEach(async () => {
-        parentPost = await PostFactory.createForConnect({
+        parentPost = await PostFactory.create({
           comments: {
             create: await CommentFactory.buildList([
               { id: "older_comment", updatedAt: new Date("2022-11-01") },
