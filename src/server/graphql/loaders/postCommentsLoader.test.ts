@@ -15,7 +15,7 @@ describe(createPostCommentsLoader, () => {
       },
       {
         id: "post2",
-        comments: { create: await CommentFactory.buildList(1) },
+        comments: { create: await CommentFactory.buildList(1, { id: "other_comment" }) },
       },
       {
         id: "post3",
@@ -25,8 +25,7 @@ describe(createPostCommentsLoader, () => {
 
   it("loads comments in a post", async () => {
     const loader = createPostCommentsLoader(jestPrisma.client);
-    const comments = await loader.load("post1");
-    expect(comments.map(c => c.id)).toEqual(["latest_comment", "older_comment"]);
+    expect((await loader.load("post1")).map(({ id }) => id)).toEqual(["latest_comment", "older_comment"]);
   });
 
   it("loads comments in multiple posts", async () => {
