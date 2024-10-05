@@ -1,5 +1,4 @@
-import { Comment, PrismaClient } from "@prisma/client";
-import DataLoader from "dataloader";
+import type { PrismaClient } from "@prisma/client";
 
 import { createPostCommentsLoader } from "./postCommentsLoader.js";
 
