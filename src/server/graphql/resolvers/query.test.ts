@@ -1,7 +1,7 @@
+import { toGlobalId } from "graphql-relay";
 import { Query } from "./query.js";
 import { PostFactory, CommentFactory } from "../../../testing/factories/index.js";
 import { createStubContext } from "../../../testing/graphql/stubContext.js";
-import { encodeId } from "./nodeId.js";
 
 describe("Query resolver", () => {
   describe("posts field", () => {
@@ -28,49 +28,49 @@ describe("Query resolver", () => {
   });
 
   describe("post field", () => {
-    const toNodeId = (entityId: string) => encodeId("Post", { id: entityId });
-    const subject = (nodeId: string) => Query.post({}, { id: nodeId }, createStubContext());
+    const gid = (entityId: TemplateStringsArray) => toGlobalId("Post", entityId[0]);
+    const subject = (globalId: string) => Query.post({}, { id: globalId }, createStubContext());
 
     describe("when a post exists", () => {
       beforeEach(async () => await PostFactory.create({ id: "sample_post" }));
 
       it("resolves null", async () => {
-        await expect(subject(toNodeId("not_existing_post_id"))).resolves.toBeNull();
+        await expect(subject(gid`not_existing_post_id`)).resolves.toBeNull();
       });
 
       it("resolves an object", async () => {
-        await expect(subject(toNodeId("sample_post"))).resolves.toMatchObject({ id: "sample_post" });
+        await expect(subject(gid`sample_post`)).resolves.toMatchObject({ id: "sample_post" });
       });
     });
   });
 
   describe("comment field", () => {
-    const toNodeId = (entityId: string) => encodeId("Comment", { id: entityId });
-    const subject = (nodeId: string) => Query.comment({}, { id: nodeId }, createStubContext());
+    const gid = (entityId: TemplateStringsArray) => toGlobalId("Comment", entityId[0]);
+    const subject = (globalId: string) => Query.comment({}, { id: globalId }, createStubContext());
 
     describe("when a comment exists", () => {
       beforeEach(async () => await CommentFactory.create({ id: "sample_comment" }));
 
       it("resolves null", async () => {
-        await expect(subject(toNodeId("not_existing_post_id"))).resolves.toBeNull();
+        await expect(subject(gid`not_existing_post_id`)).resolves.toBeNull();
       });
 
       it("resolves an object", async () => {
-        await expect(subject(toNodeId("sample_comment"))).resolves.toMatchObject({ id: "sample_comment" });
+        await expect(subject(gid`sample_comment`)).resolves.toMatchObject({ id: "sample_comment" });
       });
     });
   });
 
   describe("node field", () => {
-    const subject = (nodeId: string) => Query.node({}, { id: nodeId }, createStubContext());
+    const subject = (globalId: string) => Query.node({}, { id: globalId }, createStubContext());
     it("resolves concrete node Post type", async () => {
       const post = await PostFactory.create();
-      await expect(subject(encodeId("Post", post))).resolves.toMatchObject({ __typename: "Post" });
+      await expect(subject(toGlobalId("Post", post.id))).resolves.toMatchObject({ __typename: "Post" });
     });
 
     it("resolves concrete node Comment type", async () => {
       const comment = await CommentFactory.create();
-      await expect(subject(encodeId("Comment", comment))).resolves.toMatchObject({ __typename: "Comment" });
+      await expect(subject(toGlobalId("Comment", comment.id))).resolves.toMatchObject({ __typename: "Comment" });
     });
   });
 });

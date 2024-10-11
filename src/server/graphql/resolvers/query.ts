@@ -1,18 +1,18 @@
+import { fromGlobalId } from "graphql-relay";
 import type { QueryResolvers } from "../__generated__/graphql.js";
-import { decodeId } from "./nodeId.js";
 
 const lookupFields = {
   post: async (_, { id: nodeId }, { prisma }) => {
-    const { typeName, id } = decodeId(nodeId);
-    if (typeName !== "Post" || !id) return null;
+    const { type, id } = fromGlobalId(nodeId);
+    if (type !== "Post" || !id) return null;
     const post = await prisma.post.findUnique({ where: { id } });
-    return post ? { ...post, __typename: typeName } : null;
+    return post ? { ...post, __typename: type } : null;
   },
   comment: async (_, { id: nodeId }, { prisma }) => {
-    const { typeName, id } = decodeId(nodeId);
-    if (typeName !== "Comment" || !id) return null;
+    const { type, id } = fromGlobalId(nodeId);
+    if (type !== "Comment" || !id) return null;
     const comment = await prisma.comment.findUnique({ where: { id } });
-    return comment ? { ...comment, __typename: typeName } : null;
+    return comment ? { ...comment, __typename: type } : null;
   },
 } as const satisfies QueryResolvers;
 
@@ -23,8 +23,8 @@ export const Query = {
     return posts.map(post => ({ ...post }));
   },
   node(_, args, ctx) {
-    const { typeName } = decodeId(args.id);
-    switch (typeName) {
+    const { type } = fromGlobalId(args.id);
+    switch (type) {
       case "Post":
         return lookupFields.post(_, args, ctx);
       case "Comment":

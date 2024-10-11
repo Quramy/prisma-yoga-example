@@ -14,8 +14,10 @@ describe("Post resolver", () => {
       });
 
       it("resolves comments as empty array", async () => {
-        const resolved = await subject();
-        expect(resolved).toEqual([]);
+        const connection = await subject();
+        expect(connection.pageInfo.total).toBe(0);
+        expect(connection.edges).toEqual([]);
+        expect(connection.nodes).toEqual([]);
       });
     });
 
@@ -32,8 +34,9 @@ describe("Post resolver", () => {
       });
 
       it("resolves comments in order updatedAt desc", async () => {
-        const resolved = await subject();
-        expect(resolved.map(c => c.id)).toEqual(["latest_comment", "older_comment"]);
+        const connection = await subject();
+        expect(connection.pageInfo.total).toBe(2);
+        expect(connection.nodes.map(c => c.id)).toEqual(["latest_comment", "older_comment"]);
       });
     });
   });
