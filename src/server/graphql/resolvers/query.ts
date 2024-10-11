@@ -4,11 +4,13 @@ import { decodeId } from "./nodeId.js";
 const lookupFields = {
   post: async (_, { id: nodeId }, { prisma }) => {
     const { typeName, id } = decodeId(nodeId);
+    if (typeName !== "Post" || !id) return null;
     const post = await prisma.post.findUnique({ where: { id } });
     return post ? { ...post, __typename: typeName } : null;
   },
   comment: async (_, { id: nodeId }, { prisma }) => {
     const { typeName, id } = decodeId(nodeId);
+    if (typeName !== "Comment" || !id) return null;
     const comment = await prisma.comment.findUnique({ where: { id } });
     return comment ? { ...comment, __typename: typeName } : null;
   },
