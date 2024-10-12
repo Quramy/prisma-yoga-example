@@ -36,15 +36,18 @@ export const typeDefs = /* GraphQL */ `
 
   input AddCommentToPostInput {
     clientMutationId: ID
-    body: String!
+    postId: ID!
+    commentBody: String!
   }
 
   type AddCommentToPostResultSuccess {
+    clientMutationId: ID
     commentEdge: CommentEdge!
     commentNode: Comment!
   }
 
   type MutationFailure {
+    clientMutationId: ID
     reason: String
   }
 
@@ -58,6 +61,6 @@ export const typeDefs = /* GraphQL */ `
   }
 
   type Mutation {
-    addCommentToPost(input: AddCommentToPostInput): AddCommentToPostResult!
+    addCommentToPost(input: AddCommentToPostInput!): AddCommentToPostResult!
   }
 `;

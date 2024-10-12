@@ -41,15 +41,18 @@ type CommentConnection {
 
 input AddCommentToPostInput {
   clientMutationId: ID
-  body: String!
+  postId: ID!
+  commentBody: String!
 }
 
 type AddCommentToPostResultSuccess {
+  clientMutationId: ID
   commentEdge: CommentEdge!
   commentNode: Comment!
 }
 
 type MutationFailure {
+  clientMutationId: ID
   reason: String
 }
 
@@ -63,5 +66,5 @@ type Query {
 }
 
 type Mutation {
-  addCommentToPost(input: AddCommentToPostInput): AddCommentToPostResult!
+  addCommentToPost(input: AddCommentToPostInput!): AddCommentToPostResult!
 }
