@@ -32,14 +32,14 @@
     "@quramy/prisma-fabbrica": "^2.0.0",
     "cross-env": "^7.0.3",
     "prettier": "^2.8.0",
-    "prisma": "^5.0.0",
+    "prisma": "^6.0.0",
     "ts-jest": "^29.0.3",
     "tsimp": "^2.0.11",
     "typescript": "~5.5.0"
   },
   "dependencies": {
     "@graphql-tools/utils": "^10.5.4",
-    "@prisma/client": "^5.0.0",
+    "@prisma/client": "^6.0.0",
     "@types/jest": "^29.2.1",
     "dataloader": "^2.1.0",
     "graphql": "^16.6.0",
