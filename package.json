@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@graphql-tools/utils": "^10.5.4",
-    "@prisma/client": "^5.0.0",
+    "@prisma/client": "^7.0.0",
     "@types/jest": "^29.2.1",
     "dataloader": "^2.1.0",
     "graphql": "^16.6.0",
